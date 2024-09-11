@@ -9,15 +9,14 @@ const ListForm = ({ onSave, list = {} }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Nome da Lista"
-        value={nome}
-        onChange={(e) => setNome(e.target.value)}
-        required
-      />
-      <button type="submit">Salvar</button>
+    <form onSubmit={handleSubmit} className="row g-3">
+        <div class="col-auto">
+          <label for="inputPassword2" class="visually-hidden">Adicionar Tarefa</label>
+          <input required value={nome} onChange={(e) => setNome(e.target.value)} type="text" class="form-control"  placeholder="Adicionar Tarefa"/>
+        </div>
+      <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-3">Salvar</button>
+      </div>
     </form>
   );
 };

@@ -43,12 +43,14 @@ const ListDetails = () => {
 
   return (
     <div>
-      <h2>{list.nome}</h2>
+      <h2 className='text-center'>{list.nome}</h2>
       <ItemForm onSave={addItem} item={item}/>
-      {items.map(item => (
-        <Item key={item.id} item={item} onToggle={toggleItem} onDelete={deleteItem} />
-      ))}
-      <Link to={`/`}><button type="button" class="btn btn-primary">Inicio</button></Link>
+        {items.map(item => (
+          <span className='d-flex m-2'>
+            <Item key={item.id} item={item} onToggle={toggleItem} onDelete={deleteItem} />
+          </span>
+        ))}
+      
     </div>
   );
 };

@@ -11,7 +11,7 @@ const Home = () => {
     api.get('/listas')
       .then(response => setLists(response.data))
       .catch(error => console.error('Erro ao buscar listas:', error));
-  }, []);
+  }, [lists.length]);
 
   const addList = (list) => {
     api.post('/listas', list)
@@ -26,12 +26,12 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-        <span className="d-flex p-2 justify-content-center">
+    <div className="container card m-5">
+        <span className="d-flex p-2 flex-column">
             <h2 className="text-primary">Minhas Listas</h2>
             <ListForm onSave={addList} />
         </span>
-      <span className="p-2">
+      <span className="p-2 d-flex">
         {lists.map(list => (
             <List key={list.id} list={list} onDelete={deleteList} />
         ))}
