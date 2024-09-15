@@ -11,7 +11,7 @@ const Home = () => {
     api.get('/listas')
       .then(response => setLists(response.data))
       .catch(error => console.error('Erro ao buscar listas:', error));
-  }, [lists.length]);
+  }, [lists]);
 
   const addList = (list) => {
     api.post('/listas', list)
